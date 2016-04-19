@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+# Define some text attributes and colours:
+# Nothing here yet
+
+# enable colour support of ls and grep
+if [ -x /usr/bin/dircolors ]
+    begin test -r ~/.dircolors; and eval "(dircolors -b ~/.dircolors)"; and eval "(dircolors -b)"; end
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+end

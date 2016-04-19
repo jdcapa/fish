@@ -1,18 +1,16 @@
 #!/usr/bin/env fish
-set fish_greeting ""
 
+set -x FISH_DIR $HOME/.config/fish
 
-
-
-# if [ -d $HOME/.bashrc.d ]; then
-#     for x in $HOME/.bashrc.d/* ; do
-#         if [[ "${x##*/}" != "bashrc.init" ]]; then
-#             test -f "$x" || continue
-#             test -x "$x" || continue
-#             . "$x"
-#         fi
-#     done
-# fi
+if test -d $FISH_DIR/fish.d
+    for x in $FISH_DIR/fish.d/*
+        # if [[ "${x##*/}" != "bashrc.init" ]]
+        if begin test -f "$x"; and test -x "$x"; end
+            source "$x"
+        end
+        # end
+    end
+end
 
 
 
@@ -28,10 +26,6 @@ set fish_greeting ""
 
 
 
-
-
-set LOCAL /usr/local
-set PYTHON_LOC $HOME/.local
 
 set -g -x PATH ~/bin $PATH
 set -g -x PATH ~/.local/bin $PATH

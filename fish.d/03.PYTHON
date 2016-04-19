@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+
+# The .local bin
+if [ -d "$HOME/.local/bin" ]
+    set -g PATH PATH $HOME/.local/bin
+end
+
+# BIN and LIBRARIES in the $HOME/bin directory
+if [ -e $BIN/Python/bin ]
+    # BIN
+    set py_bin $BIN/Python/bin
+    set -g PATH PATH $py_bin
+end
+
+if [ -e $BIN/Python/modules ]
+    # Python (quick) modules
+    set py_mod $BIN/Python/modules
+    set -g PYTHONPATH $PYTHONPATH $py_mod
+end
+
+# This is for a local Python environment (own python compilation in PYTHON_LOC)
+if [ -e $HOME/.virtualenvs ]
+    set -g -x WORKON_HOME $HOME/.virtualenvs
+    # source {$PYTHON_LOC}/bin/virtualenvwrapper.sh
+    eval (python -m virtualfish)
+    set -g -x PROJECT_HOME $HOME/.devel
+end
+
+set -g -x PATH
+set -g -x PYTHONPATH

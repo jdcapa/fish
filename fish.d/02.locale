@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+# Locale set-up for Australia
+set -g -x  LC_ALL en_AU.UTF-8
+set -g -x  LANGUAGE en_AU.UTF-8

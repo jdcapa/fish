@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+set fish_greeting "Go fish!"
+
+# Initial Variables
+set -g -x FISH_DIR $HOME/.config/fish
+
+set -g -x LOCAL /usr/local
+set -g -x PYTHON_LOC $HOME/.local
